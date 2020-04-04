@@ -9,7 +9,7 @@ class toSeeList extends Component {
       <ScrollView>
         <List>
           {moviesTs.map((movie) => (
-            <ListItem />
+            <ListItem title={movie.title} bottomDivider />
           ))}
         </List>
       </ScrollView>

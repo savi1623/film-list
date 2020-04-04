@@ -9,7 +9,7 @@ class SeenList extends Component {
       <ScrollView>
         <List>
           {seenMovies.map((movie) => (
-            <ListItem title={} />
+            <ListItem title={movie.title} bottomDivider />
           ))}
         </List>
       </ScrollView>
