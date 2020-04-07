@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView } from 'react-native';
-import { Button } from 'react-native-elements';
-import { movieTS, seenMovies } from '../config/data.js';
+import { Text, View } from 'react-native';
+import { Button, SearchBar, Header } from 'react-native-elements';
+// import { movieTS, seenMovies } from '../config/data.js';
 
 class Home extends Component {
   render() {
