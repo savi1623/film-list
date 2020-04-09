@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
-import { List, ListItem } from 'react-native-elements';
+import { ListItem } from 'react-native-elements';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 
 class MovieSeen extends Component {
@@ -8,15 +8,13 @@ class MovieSeen extends Component {
     const { title, rating, review, date } = this.props.navigation.state.params;
     return (
       <ScrollView>
-        <List>
-          <ListItem title={title} />
-          <ListItem title='Date Seen' subtitle={date} />
-          <ListItem title='Rating' rightTitle={rating} />
-          <ListItem
-            title='Review'
-            subtitle={<Rating readonly startingValue={rating} />}
-          />
-        </List>
+        <ListItem title={title} />
+        <ListItem title='Date Seen' subtitle={date} />
+        <ListItem title='Rating' rightTitle={rating} />
+        <ListItem
+          title='Review'
+          subtitle={<Rating readonly startingValue={rating} />}
+        />
       </ScrollView>
     );
   }

@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { ScrollView } from 'react-native';
-import { List, ListItem, Button } from 'react-native-elements';
+import { ListItem, Button } from 'react-native-elements';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 
 class MovieToSee extends Component {
+  onLearn = () => {
+    this.props.navigation.navigate('Review');
+  };
   render() {
     const {
       title,
@@ -13,16 +16,14 @@ class MovieToSee extends Component {
     } = this.props.navigation.state.params;
     return (
       <ScrollView>
-        <List>
-          <ListItem title={title} />
-          <ListItem title='Where To Watch' subtitle={stream} />
-          <ListItem
-            title='Rating'
-            rightTitle={<Rating readonly startingValue={rating} />}
-          />
-          <ListItem title='Synopsis' subtitle={synopsis} />
-        </List>
-        <Button title='Add to seen' />
+        <ListItem title={title} />
+        <ListItem title='Where To Watch' subtitle={stream} />
+        <ListItem
+          title='Rating'
+          rightTitle={<Rating readonly startingValue={rating} />}
+        />
+        <ListItem title='Synopsis' subtitle={synopsis} />
+        <Button title='Add to seen' onPress={this.onLearn} />
       </ScrollView>
     );
   }
