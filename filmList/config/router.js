@@ -1,5 +1,6 @@
 import React from 'react';
-import { TabNavigator, StackNavigator } from 'react-navigation';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import Home from '../screens/Home.js';
 import MovieSeen from '../screens/MovieSeen.js';

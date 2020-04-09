@@ -17,7 +17,10 @@ class Home extends Component {
         <Text>Search For A Movie</Text>
         <SearchBar />
         <Button title='Movies I want to see' />
-        <Button title='Movies I have seen' />
+        <Button
+          title='Movies I have seen'
+          onPress={() => this.props.navigation.navigate('SeenList')}
+        />
       </View>
     );
   }
