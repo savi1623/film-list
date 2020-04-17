@@ -7,6 +7,7 @@ import {
   TextInput,
   ImageBackground,
 } from 'react-native';
+import { Header } from 'react-native-elements';
 // import { movieTS, seenMovies } from '../config/data.js';
 
 export default function Home({ navigation }) {
@@ -14,8 +15,7 @@ export default function Home({ navigation }) {
     navigation.navigate(screen);
   };
   return (
-    <ImageBackground
-      source={{ uri: 'https://wallpaperaccess.com/full/1512227.jpg' }}>
+    <ImageBackground>
       <View style={styles.container}>
         <Text style={{ fontSize: 30, fontColor: 'black' }}> Movie List </Text>
         <View style={{ flexDirection: 'row' }}>

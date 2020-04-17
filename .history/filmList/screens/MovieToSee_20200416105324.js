@@ -4,9 +4,8 @@ import { ListItem, Button } from 'react-native-elements';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 
 class MovieToSee extends Component {
-  onLearn() {
-    console.log('clicked');
-    this.props.navigation.navigate('Review');
+  onLearn(review) {
+    this.props.navigation.navigate('MovieToSee', { ...review });
   }
   render() {
     const {
@@ -15,7 +14,7 @@ class MovieToSee extends Component {
       synposis,
       stream
     } = this.props.navigation.state.params;
-    // console.log(synposis);
+    console.log(synposis);
     return (
       <ScrollView>
         <ListItem title={title} />

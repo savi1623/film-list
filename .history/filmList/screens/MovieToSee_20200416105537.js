@@ -4,9 +4,9 @@ import { ListItem, Button } from 'react-native-elements';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 
 class MovieToSee extends Component {
-  onLearn() {
+  onLearn(review) {
     console.log('clicked');
-    this.props.navigation.navigate('Review');
+    this.props.navigation.navigate('MovieToSee', { ...review });
   }
   render() {
     const {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { ScrollView, Text } from 'react-native';
+import { ScrollView } from 'react-native';
 import { Input, Button } from 'react-native-elements';
-import { Rating } from 'react-native-ratings';
+import { Rating, AirbnbRating } from 'react-native-ratings';
 
 class Review extends Component {
   render() {
@@ -10,10 +10,7 @@ class Review extends Component {
         <Text> Your Rating</Text>
         <Rating />
         <Input label='Your Review' />
-        <Button
-          title='Submit'
-          onPress={() => this.props.navigation.navigate('Home')}
-        />
+        <Button title='Submit' />
       </ScrollView>
     );
   }

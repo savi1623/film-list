@@ -10,10 +10,7 @@ class Review extends Component {
         <Text> Your Rating</Text>
         <Rating />
         <Input label='Your Review' />
-        <Button
-          title='Submit'
-          onPress={() => this.props.navigation.navigate('Home')}
-        />
+        <Button title='Submit' onPress={() => this.props.navigation.goBack()} />
       </ScrollView>
     );
   }
