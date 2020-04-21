@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView } from 'react-native';
 import { ListItem } from 'react-native-elements';
-import { moviesTS } from '../config/data.js';
+// import { moviesTS } from '../config/data.js';
 
 class toSeeList extends Component {
   onLearnMore(movie) {
     this.props.navigation.navigate('MovieToSee', { ...movie });
   }
   render() {
+    const moviesTS = this.props.navigation.state.params.movielist;
     return (
       <ScrollView>
         {moviesTS.map((movie) => (
