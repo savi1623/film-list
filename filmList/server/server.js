@@ -4,7 +4,10 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 // const db = require('./db/controllers.js');
-// const url = 'https://superheroapi.com/api/10217002715925793';
+const url = 'http://www.omdbapi.com/?apikey=1352744d&t=';
+
+// const key = '1352744d';
+//key for api
 
 const port = 5000;
 app.use(bodyParser.json());
@@ -12,6 +15,11 @@ app.use(cors());
 
 app.get('/tosee/:movieTs', (req, res, next) => {
   // for each in the to see list get each films data
+  const { movieTs } = req.params;
+  axios.get(`${url}${movieTs}`).then((data) => {
+    // console.log(movieTs);
+    res.send(data.data);
+  });
 });
 
 app.get('/seen/:movieSeen', (req, res, next) => {
