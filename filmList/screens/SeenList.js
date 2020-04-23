@@ -8,7 +8,8 @@ class SeenList extends Component {
     this.props.navigation.navigate('MovieSeen', { ...movie });
   }
   render() {
-    const seenMovies = this.props.navigation.state.params.movielist;
+    const seenMovies = this.props.navigation.state.params.movielist.list;
+    console.log(seenMovies);
     return (
       <ScrollView>
         {seenMovies.map((movie) => (

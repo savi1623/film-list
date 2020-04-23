@@ -7,6 +7,7 @@ import {
   TextInput,
   ImageBackground,
 } from 'react-native';
+import axios from 'axios';
 import { moviesTS, seenMovies } from '../config/data.js';
 
 class Home extends Component {
@@ -19,6 +20,21 @@ class Home extends Component {
     };
     this.pressHandler = this.pressHandler.bind(this);
   }
+
+  async componentDidMount() {
+    const getTS = await axios.get('http://localhost:5000/tsList');
+    const getSeen = await axios.get('http://localhost:5000/seenList');
+    // console.log(getTS.data);
+    // console.log(getSeen.data);
+    this.setState(
+      {
+        toSeeList: getTS.data,
+        seenList: getSeen.data,
+      },
+      console.log(this.state)
+    );
+  }
+
   pressHandler(screen, list) {
     this.props.navigation.navigate(screen, {
       movielist: list,
@@ -35,7 +51,7 @@ class Home extends Component {
     //remove film from TS state
   }
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <ImageBackground
         source={{ uri: 'https://wallpaperaccess.com/full/1512227.jpg' }}>
