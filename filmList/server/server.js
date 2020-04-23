@@ -3,7 +3,7 @@ const axios = require('axios');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
-// const db = require('./db/controllers.js');
+const db = require('./db.js');
 const url = 'http://www.omdbapi.com/?apikey=1352744d&t=';
 
 // const key = '1352744d';
@@ -22,21 +22,30 @@ app.get('/tosee/:movieTs', (req, res, next) => {
   });
 });
 
-app.get('/seen/:movieSeen', (req, res, next) => {
+app.get(
+  '/seen/:movieSeen',
   // for each film in the data base get the data for each film
-});
+  db.seenMovie
+);
 
-app.get('/seenList', (req, res, next) => {
-  //get the seen list, titles, as an array
-});
+app.get('/seenList', db.getSeenList);
 
-app.get('/tsList', (req, res, next) => {
-  //get the to see list, titles, as an array
-});
+app.get('/tsList', db.getTsList);
 
-app.post('/review/:movie', (req, res, next) => {
+app.post('/review', (req, res, next) => {
   // post review to new film and add film to seen list
+  const { movie, rating, review } = req.body;
+  // console.log('hello');
+  db.addMovie(movie, rating, review).then(() => {
+    // console.log('civl');
+    res.status(201).json({
+      status: 'success',
+      message: 'Inserted film into Seen List',
+    });
+  });
 });
+
+app.post('/tose/:movie', db.addTs);
 
 app.delete('/:movie', (req, res, next) => {
   //delete film from the to see list
