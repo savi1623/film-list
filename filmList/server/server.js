@@ -47,8 +47,10 @@ app.post('/review', (req, res, next) => {
 
 app.post('/tose/:movie', db.addTs);
 
-app.delete('/:movie', (req, res, next) => {
+app.delete(
+  '/delete/:movie',
   //delete film from the to see list
-});
+  db.deleteMovie
+);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

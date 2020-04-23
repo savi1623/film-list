@@ -66,11 +66,21 @@ function seenMovie(req, res, next) {
     });
 }
 
+function deleteMovie(req, res, next) {
+  const movie = req.params.movie;
+  db.none(`Delete from toseelist Where title= '${movie}'`).then(() => {
+    res.status(204).json({
+      status: 'success',
+      message: 'Film removed from to see list',
+    });
+  });
+}
+
 module.exports = {
   getSeenList: getSeenList,
   getTsList: getTsList,
   seenMovie: seenMovie,
   addMovie: addMovie,
-  // deleteMovie: deleteMovie,
+  deleteMovie: deleteMovie,
   addTs: addTs,
 };
