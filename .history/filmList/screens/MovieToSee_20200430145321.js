@@ -39,23 +39,18 @@ class MovieToSee extends Component {
     // console.log(this.props.navigation.state.params);
     return (
       <ScrollView>
-        <ListItem
-          title={title}
-          titleStyle={{ fontWeight: 'bold', textAlign: 'center' }}
-          containerStyle={{ backgroundColor: '#F0F8FF' }}
-        />
+        <ListItem title={title} titleStyle={{ fontWeight: 'bold' }} />
         <ListItem
           title='Date Released'
           titleStyle={{ fontWeight: 'bold' }}
           subtitle={this.state.date}
         />
         <ListItem
-          title={`Rated: ${this.state.rate} `}
-          titleStyle={{ fontWeight: 'bold' }}
+          title={`Rated: ${this.state.rate}           titleStyle={{ fontWeight: 'bold' }}
+`}
         />
         <ListItem
           title='Rating'
-          titleStyle={{ fontWeight: 'bold' }}
           subtitle={
             <AirbnbRating
               isDisabled={true}

@@ -1,57 +1,48 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { ScrollView } from 'react-native';
-import { ListItem, Button } from 'react-native-elements';
+import { ListItem } from 'react-native-elements';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 
-class MovieToSee extends Component {
+class MovieSeen extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: this.props.navigation.state.params.title,
       rating: '',
-      synposis: '',
+      review: '',
       date: '',
-      rate: '',
     };
   }
 
   async componentDidMount() {
-    // console.log(this.state.title);
     const getMovie = await axios.get(
-      `http://localhost:5000/tosee/${this.state.title}`
+      `http://localhost:5000/seen/${this.state.title}`
     );
+    const newDate = await new Date(getMovie.data.movie[0].date);
     this.setState({
-      rating: getMovie.data.imdbRating,
-      synposis: getMovie.data.Plot,
-      date: getMovie.data.Year,
-      rate: getMovie.data.Rated,
+      rating: getMovie.data.movie[0].rating,
+      review: getMovie.data.movie[0].review,
+      date: getMovie.data.movie[0].date.substring(0, 10),
     });
   }
 
-  onLearn() {
-    console.log('clicked');
-    this.props.navigation.navigate('Review', this.state.title);
-  }
   render() {
-    // console.log(synposis);
-    const { title } = this.props.navigation.state.params;
-    // console.log(this.props.navigation.state.params);
     return (
       <ScrollView>
         <ListItem
-          title={title}
+          title={this.state.title}
           titleStyle={{ fontWeight: 'bold', textAlign: 'center' }}
-          containerStyle={{ backgroundColor: '#F0F8FF' }}
         />
         <ListItem
-          title='Date Released'
+          title='Date Seen'
           titleStyle={{ fontWeight: 'bold' }}
           subtitle={this.state.date}
         />
         <ListItem
-          title={`Rated: ${this.state.rate} `}
+          title='Review'
           titleStyle={{ fontWeight: 'bold' }}
+          subtitle={this.state.review}
         />
         <ListItem
           title='Rating'
@@ -65,15 +56,9 @@ class MovieToSee extends Component {
             />
           }
         />
-        <ListItem
-          title='Synopsis'
-          titleStyle={{ fontWeight: 'bold' }}
-          subtitle={this.state.synposis}
-        />
-        <Button title='Add to seen' onPress={() => this.onLearn()} />
       </ScrollView>
     );
   }
 }
 
-export default MovieToSee;
+export default MovieSeen;

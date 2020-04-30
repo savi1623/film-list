@@ -30,24 +30,11 @@ class MovieSeen extends Component {
   render() {
     return (
       <ScrollView>
-        <ListItem
-          title={this.state.title}
-          titleStyle={{ fontWeight: 'bold', textAlign: 'center' }}
-          containerStyle={{ backgroundColor: '#F0F8FF' }}
-        />
-        <ListItem
-          title='Date Seen'
-          titleStyle={{ fontWeight: 'bold' }}
-          subtitle={this.state.date}
-        />
-        <ListItem
-          title='Review'
-          titleStyle={{ fontWeight: 'bold' }}
-          subtitle={this.state.review}
-        />
+        <ListItem title={this.state.title} />
+        <ListItem title='Date Seen' subtitle={this.state.date} />
+        <ListItem title='Review' subtitle={this.state.review} />
         <ListItem
           title='Rating'
-          titleStyle={{ fontWeight: 'bold' }}
           subtitle={
             <AirbnbRating
               isDisabled={true}

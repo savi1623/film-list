@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { ScrollView, View } from 'react-native';
+import { ScrollView } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 
@@ -32,8 +32,7 @@ class MovieSeen extends Component {
       <ScrollView>
         <ListItem
           title={this.state.title}
-          titleStyle={{ fontWeight: 'bold', textAlign: 'center' }}
-          containerStyle={{ backgroundColor: '#F0F8FF' }}
+          titleStyle={{ fontWeight: 'bold' }}
         />
         <ListItem
           title='Date Seen'

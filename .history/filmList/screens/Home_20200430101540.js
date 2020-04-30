@@ -68,48 +68,50 @@ class Home extends Component {
     return (
       // <ImageBackground
       //   source={{ uri: 'https://wallpaperaccess.com/full/1512227.jpg' }}>
-      <View style={styles.container}>
-        <Text style={{ fontSize: 30, fontColor: 'black' }}> Movie List </Text>
-        {/* <View style={{ flexDirection: 'row' }}> */}
-        <TextInput
-          onChangeText={(newMovie) => this.setState({ newMovie })}
-          placeholder='Search for a Movie'
-          style={{
-            paddingLeft: 6,
-            height: 40,
-            borderColor: 'gray',
-            borderWidth: 1,
-          }}
-        />
-        <TouchableOpacity
-          onPress={() => this.addToWatchList(this.state.newMovie)}
-          style={{
-            backgroundColor: '#F0F8FF',
-            padding: 5,
-            borderRadius: 5,
-            margin: 5,
-          }}>
-          <Text style={{ color: 'black', fontSize: 20 }}>Add to Watchlist</Text>
-        </TouchableOpacity>
-        {/* </View> */}
-        <TouchableOpacity
-          // title='Movies I want to see'
-          onPress={() => this.pressHandler('ToSeeList', this.state.toSeeList)}
-          style={styles.button}>
-          <Text style={{ color: 'black', fontSize: 20 }}>
-            Movies I want to see
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          // title='Movies I have seen'
-          onPress={() => this.pressHandler('SeenList', this.state.seenList)}
-          style={styles.button}>
-          <Text style={{ color: 'black', fontSize: 20 }}>
-            Movies I have seen
-          </Text>
-        </TouchableOpacity>
-      </View>
-      // </ImageBackground>
+        <View style={styles.container}>
+          <Text style={{ fontSize: 30, fontColor: 'black' }}> Movie List </Text>
+          <View style={{ flexDirection: 'row' }}>
+            <TextInput
+              onChangeText={(newMovie) => this.setState({ newMovie })}
+              placeholder='Search for a Movie'
+              style={{
+                paddingLeft: 6,
+                height: 40,
+                borderColor: 'gray',
+                borderWidth: 1,
+              }}
+            />
+            <TouchableOpacity
+              onPress={() => this.addToWatchList(this.state.newMovie)}
+              style={{
+                backgroundColor: '#DDDDDD',
+                padding: 5,
+                borderRadius: 5,
+                margin: 5,
+              }}>
+              <Text style={{ color: 'black', fontSize: 20 }}>
+                Add to Watchlist
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <TouchableOpacity
+            // title='Movies I want to see'
+            onPress={() => this.pressHandler('ToSeeList', this.state.toSeeList)}
+            style={styles.button}>
+            <Text style={{ color: 'black', fontSize: 20 }}>
+              Movies I want to see
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            // title='Movies I have seen'
+            onPress={() => this.pressHandler('SeenList', this.state.seenList)}
+            style={styles.button}>
+            <Text style={{ color: 'black', fontSize: 20 }}>
+              Movies I have seen
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </ImageBackground>
     );
   }
 }
@@ -117,13 +119,13 @@ class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FDF5E6',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#F0F8FF',
+    backgroundColor: '#DDDDDD',
     padding: 10,
     borderRadius: 5,
     margin: 10,

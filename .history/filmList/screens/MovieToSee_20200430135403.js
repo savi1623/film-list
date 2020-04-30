@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { ScrollView } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import { ListItem, Button } from 'react-native-elements';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 
@@ -39,23 +39,11 @@ class MovieToSee extends Component {
     // console.log(this.props.navigation.state.params);
     return (
       <ScrollView>
-        <ListItem
-          title={title}
-          titleStyle={{ fontWeight: 'bold', textAlign: 'center' }}
-          containerStyle={{ backgroundColor: '#F0F8FF' }}
-        />
-        <ListItem
-          title='Date Released'
-          titleStyle={{ fontWeight: 'bold' }}
-          subtitle={this.state.date}
-        />
-        <ListItem
-          title={`Rated: ${this.state.rate} `}
-          titleStyle={{ fontWeight: 'bold' }}
-        />
+        <ListItem title={title} />
+        <ListItem title='Date Released' subtitle={this.state.date} />
+        <ListItem title={`Rated: ${this.state.rate}`} />
         <ListItem
           title='Rating'
-          titleStyle={{ fontWeight: 'bold' }}
           subtitle={
             <AirbnbRating
               isDisabled={true}
@@ -65,15 +53,20 @@ class MovieToSee extends Component {
             />
           }
         />
-        <ListItem
-          title='Synopsis'
-          titleStyle={{ fontWeight: 'bold' }}
-          subtitle={this.state.synposis}
-        />
+        <ListItem title='Synopsis' subtitle={this.state.synposis} />
         <Button title='Add to seen' onPress={() => this.onLearn()} />
       </ScrollView>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F0F8FF',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
 export default MovieToSee;

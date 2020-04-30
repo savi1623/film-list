@@ -84,7 +84,7 @@ class Home extends Component {
         <TouchableOpacity
           onPress={() => this.addToWatchList(this.state.newMovie)}
           style={{
-            backgroundColor: '#F0F8FF',
+            backgroundColor: '#DDDDDD',
             padding: 5,
             borderRadius: 5,
             margin: 5,
@@ -117,13 +117,13 @@ class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FDF5E6',
+    backgroundColor: '#F0F8FF',
     alignItems: 'center',
     justifyContent: 'center',
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#F0F8FF',
+    backgroundColor: '#DDDDDD',
     padding: 10,
     borderRadius: 5,
     margin: 10,

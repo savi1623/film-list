@@ -117,7 +117,7 @@ class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FDF5E6',
+    backgroundColor: '#FFF',
     alignItems: 'center',
     justifyContent: 'center',
   },

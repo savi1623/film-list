@@ -45,18 +45,8 @@ class Review extends Component {
     console.log(this.props.navigation.state.params);
     return (
       <ScrollView>
-        <Text style={{ fontWeight: 'bold', fontSize: 23, textAlign: 'center' }}>
-          {' '}
-          Your Rating
-        </Text>
-        <AirbnbRating
-          count={10}
-          onFinishRating={this.ratingCompleted}
-          size={30}
-        />
-        <Text style={{ fontWeight: 'bold', fontSize: 23, textAlign: 'center' }}>
-          Your Review
-        </Text>
+        <Text> Your Rating</Text>
+        <AirbnbRating count={10} onFinishRating={this.ratingCompleted} />
         <TextInput
           style={{
             paddingLeft: 6,

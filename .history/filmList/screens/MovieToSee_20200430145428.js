@@ -39,11 +39,7 @@ class MovieToSee extends Component {
     // console.log(this.props.navigation.state.params);
     return (
       <ScrollView>
-        <ListItem
-          title={title}
-          titleStyle={{ fontWeight: 'bold', textAlign: 'center' }}
-          containerStyle={{ backgroundColor: '#F0F8FF' }}
-        />
+        <ListItem title={title} titleStyle={{ fontWeight: 'bold' }} />
         <ListItem
           title='Date Released'
           titleStyle={{ fontWeight: 'bold' }}
@@ -55,7 +51,6 @@ class MovieToSee extends Component {
         />
         <ListItem
           title='Rating'
-          titleStyle={{ fontWeight: 'bold' }}
           subtitle={
             <AirbnbRating
               isDisabled={true}
@@ -65,11 +60,7 @@ class MovieToSee extends Component {
             />
           }
         />
-        <ListItem
-          title='Synopsis'
-          titleStyle={{ fontWeight: 'bold' }}
-          subtitle={this.state.synposis}
-        />
+        <ListItem title='Synopsis' subtitle={this.state.synposis} />
         <Button title='Add to seen' onPress={() => this.onLearn()} />
       </ScrollView>
     );

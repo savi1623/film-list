@@ -30,11 +30,12 @@ class MovieSeen extends Component {
   render() {
     return (
       <ScrollView>
-        <ListItem
-          title={this.state.title}
-          titleStyle={{ fontWeight: 'bold', textAlign: 'center' }}
-          containerStyle={{ backgroundColor: '#F0F8FF' }}
-        />
+        <View style={{ backgroundColor: 'red' }}>
+          <ListItem
+            title={this.state.title}
+            titleStyle={{ fontWeight: 'bold', textAlign: 'center' }}
+          />
+        </View>
         <ListItem
           title='Date Seen'
           titleStyle={{ fontWeight: 'bold' }}

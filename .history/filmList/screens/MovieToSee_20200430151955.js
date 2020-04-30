@@ -41,7 +41,7 @@ class MovieToSee extends Component {
       <ScrollView>
         <ListItem
           title={title}
-          titleStyle={{ fontWeight: 'bold', textAlign: 'center' }}
+          titleStyle={{ fontWeight: 'bold' }}
           containerStyle={{ backgroundColor: '#F0F8FF' }}
         />
         <ListItem

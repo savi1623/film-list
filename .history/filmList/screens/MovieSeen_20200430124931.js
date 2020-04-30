@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 
@@ -19,41 +19,28 @@ class MovieSeen extends Component {
     const getMovie = await axios.get(
       `http://localhost:5000/seen/${this.state.title}`
     );
-    const newDate = await new Date(getMovie.data.movie[0].date);
+    console.log(getMovie.data.movie[0]);
     this.setState({
       rating: getMovie.data.movie[0].rating,
       review: getMovie.data.movie[0].review,
-      date: getMovie.data.movie[0].date.substring(0, 10),
+      date: getMovie.data.movie[0].date,
     });
   }
 
   render() {
     return (
       <ScrollView>
-        <ListItem
-          title={this.state.title}
-          titleStyle={{ fontWeight: 'bold', textAlign: 'center' }}
-          containerStyle={{ backgroundColor: '#F0F8FF' }}
-        />
-        <ListItem
-          title='Date Seen'
-          titleStyle={{ fontWeight: 'bold' }}
-          subtitle={this.state.date}
-        />
-        <ListItem
-          title='Review'
-          titleStyle={{ fontWeight: 'bold' }}
-          subtitle={this.state.review}
-        />
+        <ListItem title={this.state.title} />
+        <ListItem title='Date Seen' subtitle={this.state.date} />
+        <ListItem title='Review' rightTitle={this.state.review} />
         <ListItem
           title='Rating'
-          titleStyle={{ fontWeight: 'bold' }}
           subtitle={
             <AirbnbRating
               isDisabled={true}
               count={10}
               defaultRating={this.state.rating}
-              size={25}
+              reviewSize={10}
             />
           }
         />
@@ -61,5 +48,14 @@ class MovieSeen extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F0F8FF',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
 export default MovieSeen;
